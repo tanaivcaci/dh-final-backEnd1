@@ -23,7 +23,7 @@ public class MovieController {
       return ResponseEntity.ok ().body (movieService.create (movie));
    }
 
-   @GetMapping ("/{genre}")
+   @GetMapping ("/genre/{genre}")
    public ResponseEntity<List<Movie>> getMoviesByGenre (@PathVariable String genre) {
       List<Movie> movies = movieService.findByGenre (genre);
       if (movies.isEmpty ()) {
@@ -32,7 +32,13 @@ public class MovieController {
       return ResponseEntity.ok ().body (movies);
    }
 
-   //TODO findAll
    //TODO findById
+   @GetMapping("/{id}")
+   public ResponseEntity<Movie> getMovieById(@PathVariable Long id){
+      Movie movie = movieService.findById (id);
+      return ResponseEntity.ok().body (movie);
+   }
+
+   //TODO findAll
 
 }
