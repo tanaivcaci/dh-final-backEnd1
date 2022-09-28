@@ -50,6 +50,13 @@ proveas este valor y lo mantengas.*/
       //No-args constructor
    }
 
+   public Movie (Long id, String name, String genre, String urlStream) {
+      this.id = id;
+      this.name = name;
+      this.genre = genre;
+      this.urlStream = urlStream;
+   }
+
    public Long getId () {
       return id;
    }
