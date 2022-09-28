@@ -32,13 +32,16 @@ public class MovieController {
       return ResponseEntity.ok ().body (movies);
    }
 
-   //TODO findById
    @GetMapping("/{id}")
    public ResponseEntity<Movie> getMovieById(@PathVariable Long id){
       Movie movie = movieService.findById (id);
       return ResponseEntity.ok().body (movie);
    }
-
-   //TODO findAll
+   
+   @GetMapping
+   public ResponseEntity<List<Movie>> getAllMovies(){
+      List<Movie> movies = movieService.findAll ();
+      return ResponseEntity.ok ().body (movies);
+   }
 
 }
