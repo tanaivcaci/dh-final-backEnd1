@@ -54,6 +54,7 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
 
    @Override
    public Catalog getCatalogByGenre (String genre) {
+      updateCatalogByGenre (genre);
       return catalogRepository.findByGenre (genre);
    }
 

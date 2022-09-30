@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @FeignClient(name = "movies-service", url = "http://localhost:8082")
-@RequestMapping("/movies")
 public interface MovieFeignClient {
-   @GetMapping("/{genre}")
+   @GetMapping("/movies/{genre}")
    List<MovieDTO> getMoviesByGenre(@PathVariable String genre);
 
 }
