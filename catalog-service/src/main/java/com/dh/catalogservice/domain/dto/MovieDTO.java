@@ -1,18 +1,18 @@
-package com.dh.catalogservice.domain.models;
+package com.dh.catalogservice.domain.dto;
 
 
-public class Movie {
+public class MovieDTO {
 
    private Long id;
    private String name;
    private String genre;
    private String urlStream;
 
-   public Movie () {
+   public MovieDTO () {
       //No-args constructor
    }
 
-   public Movie (Long id, String name, String genre, String urlStream) {
+   public MovieDTO (Long id, String name, String genre, String urlStream) {
       this.id = id;
       this.name = name;
       this.genre = genre;
@@ -53,6 +53,6 @@ public class Movie {
 
    @Override
    public String toString () {
-      return "Movie{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + ", urlStream='" + urlStream + '\'' + '}';
+      return "MovieDTO{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + ", urlStream='" + urlStream + '\'' + '}';
    }
 }

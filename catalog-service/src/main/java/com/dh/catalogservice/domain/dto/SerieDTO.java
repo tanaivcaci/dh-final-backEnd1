@@ -1,29 +1,28 @@
-package com.dh.catalogservice.domain.models;
+package com.dh.catalogservice.domain.dto;
 
 import java.util.List;
 
-public class Serie {
+public class SerieDTO {
    private String id;
    private String name;
    private String genre;
+   private List<SeasonDTO> seasonDTOS;
 
-   private List<Season> seasons;
-
-   public Serie () {
+   public SerieDTO () {
       //No-args constructor
    }
 
-   public Serie (String name, String genre, List<Season> seasons) {
+   public SerieDTO (String name, String genre, List<SeasonDTO> seasonDTOS) {
       this.name = name;
       this.genre = genre;
-      this.seasons = seasons;
+      this.seasonDTOS = seasonDTOS;
    }
 
-   public Serie (String id, String name, String genre, List<Season> seasons) {
+   public SerieDTO (String id, String name, String genre, List<SeasonDTO> seasonDTOS) {
       this.id = id;
       this.name = name;
       this.genre = genre;
-      this.seasons = seasons;
+      this.seasonDTOS = seasonDTOS;
    }
 
    public String getId () {
@@ -50,16 +49,16 @@ public class Serie {
       this.genre = genre;
    }
 
-   public List<Season> getSeasons () {
-      return seasons;
+   public List<SeasonDTO> getSeasons () {
+      return seasonDTOS;
    }
 
-   public void setSeasons (List<Season> seasons) {
-      this.seasons = seasons;
+   public void setSeasons (List<SeasonDTO> seasonDTOS) {
+      this.seasonDTOS = seasonDTOS;
    }
 
    @Override
    public String toString () {
-      return "Serie{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + ", seasons=" + seasons + '}';
+      return "SerieDTO{" + "id=" + id + ", name='" + name + '\'' + ", genre='" + genre + '\'' + ", seasonDTOS=" + seasonDTOS + '}';
    }
 }

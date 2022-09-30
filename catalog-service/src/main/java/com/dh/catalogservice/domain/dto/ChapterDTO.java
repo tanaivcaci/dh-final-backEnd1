@@ -1,23 +1,23 @@
-package com.dh.catalogservice.domain.models;
+package com.dh.catalogservice.domain.dto;
 
-public class Chapter {
+public class ChapterDTO {
 
    private String id;
    private String name;
    private Integer number;
    private String urlStream;
 
-   public Chapter () {
+   public ChapterDTO () {
       //No-args constructor
    }
 
-   public Chapter (String name, Integer number, String urlStream) {
+   public ChapterDTO (String name, Integer number, String urlStream) {
       this.name = name;
       this.number = number;
       this.urlStream = urlStream;
    }
 
-   public Chapter (String id, String name, Integer number, String urlStream) {
+   public ChapterDTO (String id, String name, Integer number, String urlStream) {
       this.id = id;
       this.name = name;
       this.number = number;
@@ -58,6 +58,6 @@ public class Chapter {
 
    @Override
    public String toString () {
-      return "Chapter{" + "id=" + id + ", name='" + name + '\'' + ", number=" + number + ", urlStream='" + urlStream + '\'' + '}';
+      return "ChapterDTO{" + "id=" + id + ", name='" + name + '\'' + ", number=" + number + ", urlStream='" + urlStream + '\'' + '}';
    }
 }
