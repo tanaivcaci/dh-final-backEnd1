@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: movies-service
+  cloud:
+    config:
+      enabled: true
+      # uri del config-server
+      uri: http://localhost:8888
+
