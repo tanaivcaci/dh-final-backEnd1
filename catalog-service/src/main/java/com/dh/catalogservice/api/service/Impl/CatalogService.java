@@ -7,10 +7,13 @@ import com.dh.catalogservice.domain.dto.MovieDTO;
 import com.dh.catalogservice.domain.dto.SerieDTO;
 import com.dh.catalogservice.domain.models.Catalog;
 import com.dh.catalogservice.domain.repositories.ICatalogRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
