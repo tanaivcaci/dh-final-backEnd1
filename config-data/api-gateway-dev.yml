@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 eureka:
   client:
     fetch-registry: true
@@ -28,3 +28,15 @@ spring:
           uri: lb://series-service
           predicates:
             - Path=/series/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway
+
+info:
+  app:
+    name: gateway-service
+    description: Gateway Service
+    version: 1.0.0

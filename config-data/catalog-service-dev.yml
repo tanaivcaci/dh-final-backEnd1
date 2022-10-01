@@ -1,5 +1,5 @@
 server:
-  #antes 8084 - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
+  #antes ${PORT:8084} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
   port: ${PORT:${SERVER_PORT:0}}
 
 eureka:
@@ -45,3 +45,9 @@ resilience4j:
         failureRateThreshold: 50
         eventConsumerBufferSize: 10
         allowHealthIndicatorToFail: false
+
+info:
+  app:
+    name: catalog-service
+    description: Catalog Service
+    version: 1.0.0

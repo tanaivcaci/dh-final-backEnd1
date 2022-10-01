@@ -1,5 +1,5 @@
 server:
-  #antes 8083 - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
+  #antes ${PORT:8083} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
   port: ${PORT:${SERVER_PORT:0}}
 eureka:
   client:
@@ -10,3 +10,9 @@ eureka:
       default-zone: http://eureka-service:8761/eureka
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+  info:
+    app:
+      name: series-service
+      description: Series Service
+      version: 1.0.0
