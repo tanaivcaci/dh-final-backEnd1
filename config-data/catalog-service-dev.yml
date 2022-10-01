@@ -1,5 +1,6 @@
 server:
-  port: 8084
+  #antes 8084 - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
+  port: ${PORT:${SERVER_PORT:0}}
 eureka:
   client:
     # True para que se registre en el servidor de EUREKA
@@ -8,4 +9,5 @@ eureka:
     service-url:
       default-zone: http://eureka-service:8761/eureka
     instance:
-      hostname: localhost
+      #hostname: localhost
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
