@@ -2,6 +2,7 @@ package com.dh.serverconfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /*
@@ -12,6 +13,7 @@ las configuraciones desde el repo en github
 
 @SpringBootApplication
 @EnableConfigServer
+@EnableDiscoveryClient
 public class ServerConfigApplication {
 
 	public static void main(String[] args) {
