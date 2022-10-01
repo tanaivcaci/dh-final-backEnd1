@@ -53,6 +53,18 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
    }
 
 
+/*   public Catalog getMoviesByGenre (String genre) {
+      ResponseEntity<List<MovieDTO>> moviesByGenre = movieFeignClient.getMoviesByGenre (genre);
+      LOG.info ("Puerto: " + moviesByGenre.getHeaders ().get ("port"));
+
+      if (moviesByGenre.getStatusCode ().is2xxSuccessful ()){
+         return new Catalog (genre, moviesByGenre.getBody ());
+      }
+
+      return null;
+   }*/
+
+
    /*----------------- OBTENGO Y ACTUALIZO CATÁLOGO ---------------*/
 
    @Override
@@ -79,6 +91,7 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
                .build());
       }
    }
+
 
 
 }
