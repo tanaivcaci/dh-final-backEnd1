@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "series-service", url = "http://localhost:8083")
+@FeignClient(name = "series-service")
 public interface SerieFeignClient {
    @GetMapping("/series/{genre}")
    List<SerieDTO> getSeriesByGenre(@PathVariable String genre);
