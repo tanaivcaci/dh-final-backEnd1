@@ -6,4 +6,7 @@ spring:
       server:
         git:
           default-label: server-config
-          uri:
+          uri: https://github.com/tanaivcaci/dh-final-backEnd1
+          search-paths: config-data
+  application:
+    name: server-config
