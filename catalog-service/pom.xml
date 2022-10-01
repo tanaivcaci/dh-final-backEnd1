@@ -44,6 +44,13 @@
 
         <!--END CONFIG CLIENT-->
 
+        <!-- EUREKA DISCOVERY CLIENT -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- FIN EUREKA DISCOVERY CLIENT -->
+
         <!--		<dependency>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-sleuth-zipkin</artifactId>
@@ -53,10 +60,6 @@
                     <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
                 </dependency>-->
 
-        <!--		<dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                </dependency>-->
 
         <!--		<dependency>
                     <groupId>org.springframework.cloud</groupId>

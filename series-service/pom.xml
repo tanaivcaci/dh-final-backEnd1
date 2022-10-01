@@ -44,6 +44,13 @@
 
         <!--END CONFIG CLIENT-->
 
+        <!-- EUREKA DISCOVERY CLIENT -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- FIN EUREKA DISCOVERY CLIENT -->
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
