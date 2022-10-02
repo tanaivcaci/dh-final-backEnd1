@@ -49,13 +49,13 @@ public class CatalogController {
 
       Catalog catalog = catalogService.getCatalogByGenre (genre);
 
-      response.addHeader ("port", port);
+      response.addHeader ("port", String.valueOf (port));
 
       ResponseEntity<Catalog> catalogResponse;
 
       if (catalog == null) {
          catalogResponse = ResponseEntity.noContent ().build ();
-         LOG.info ("Puerto: " + catalogResponse.getHeaders ().get ("port") + port);
+         LOG.info ("Puerto CatalogResponse: " + catalogResponse.getHeaders ().get ("port"));
          return catalogResponse;
       }
       catalogResponse = ResponseEntity.ok ().body (catalog);
