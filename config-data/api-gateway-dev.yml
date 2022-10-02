@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://eureka-service:8761/eureka
+      default-zone: http://eureka-server:8761/eureka
     instance:
       hostname: localhost
 
@@ -15,16 +15,39 @@ spring:
       discovery:
         locator:
           enabled: true
+      default-filters: #Filtro por defecto de todas las request realizadas al gateway
+        - name: LogFilter
       routes:
         - id: catalog-service
           uri: lb://catalog-service
           predicates:
             - Path=/catalog/**
+          filters:
+            - AddRequestHeader=catalog-request-header, custom-catalog-request-header
+            - AddResponseHeader=catalog-response-header, custom-catalog-response-header
         - id: movies-service
           uri: lb://movies-service
           predicates:
             - Path=/movies/**
+          filters:
+            - AddRequestHeader=movies-request-header, custom-movies-request-header
+            - AddResponseHeader=movies-response-header, custom-movies-response-header
         - id: series-service
           uri: lb://series-service
           predicates:
             - Path=/series/**
+          filters:
+            - AddRequestHeader=series-request-header, custom-series-request-header
+            - AddResponseHeader=series-response-header, custom-series-response-header
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway
+
+info:
+  app:
+    name: gateway-service
+    description: Gateway Service
+    version: 1.0.0

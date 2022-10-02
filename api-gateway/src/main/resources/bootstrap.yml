@@ -5,6 +5,6 @@ spring:
     config:
       enabled: true
       # uri del config-server
-      uri: http://localhost:8888
+      url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev

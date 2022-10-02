@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /*@EnableEurekaClient
-* Habilita a éste MS a para que se registre en el servidor de eureka
-* */
+* Habilita a éste MS a para que se registre en el servidor de eureka * */
 
 @SpringBootApplication
 @EnableEurekaClient

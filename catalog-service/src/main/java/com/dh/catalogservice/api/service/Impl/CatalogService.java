@@ -10,7 +10,9 @@ import com.dh.catalogservice.domain.repositories.ICatalogRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
@@ -45,9 +47,21 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
 
    //TODO AGREGAR CIRCUIT BREAKER, FALLBACKS, RETRYS
    @Override
-   public List<MovieDTO> getMoviesByGenre (String genre) {
+   public ResponseEntity<List<MovieDTO>> getMoviesByGenre (String genre) {
       return movieFeignClient.getMoviesByGenre (genre);
    }
+
+
+/*   public Catalog getMoviesByGenre (String genre) {
+      ResponseEntity<List<MovieDTO>> moviesByGenre = movieFeignClient.getMoviesByGenre (genre);
+      LOG.info ("Puerto: " + moviesByGenre.getHeaders ().get ("port"));
+
+      if (moviesByGenre.getStatusCode ().is2xxSuccessful ()){
+         return new Catalog (genre, moviesByGenre.getBody ());
+      }
+
+      return null;
+   }*/
 
 
    /*----------------- OBTENGO Y ACTUALIZO CATÁLOGO ---------------*/
@@ -60,22 +74,25 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
 
    @Override
    public void updateCatalogByGenre (String genre) {
-      List<MovieDTO> moviesByGenre = getMoviesByGenre (genre);
+      ResponseEntity<List<MovieDTO>> moviesByGenre = getMoviesByGenre (genre);
+      LOG.info ("Puerto MOVIES: " + moviesByGenre.getHeaders ().get ("port"));
+
       List<SerieDTO> seriesByGenre = getSeriesByGenre (genre);
       Catalog catalog = catalogRepository.findByGenre (genre);
 
       if(catalog != null){
-         catalog.setMovies (moviesByGenre);
+         catalog.setMovies (moviesByGenre.getBody ());
          catalog.setSerieDTOS (seriesByGenre);
          catalogRepository.save (catalog);
       } else {
          catalogRepository.save (Catalog.builder()
                .genre(genre)
-               .movieDTOS (moviesByGenre)
+               .movieDTOS (moviesByGenre.getBody ())
                .serieDTOS (seriesByGenre)
                .build());
       }
    }
+
 
 
 }

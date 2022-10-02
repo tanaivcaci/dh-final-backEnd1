@@ -4,8 +4,8 @@ spring:
   cloud:
     config:
       enabled: true
-      #uri del config server
-      uri: http://localhost:8888
+      #uri del config server url: ${CONFIG_SERVER:http://localhost:8888}
+      url: ${CONFIG_SERVER:http://localhost:8888}
   #perfil para que encuentre movies-service-dev.yml
   profiles:
     active: dev
