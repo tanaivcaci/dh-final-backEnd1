@@ -11,8 +11,8 @@ eureka:
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-  info:
-    app:
-      name: movies-service
-      description: Movie Service
-      version: 1.0.0
+info:
+  app:
+    name: movies-service
+    description: Movie Service
+    version: 1.0.0

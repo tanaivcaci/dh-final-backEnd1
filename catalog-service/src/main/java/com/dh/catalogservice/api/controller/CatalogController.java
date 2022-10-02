@@ -55,11 +55,11 @@ public class CatalogController {
 
       if (catalog == null) {
          catalogResponse = ResponseEntity.noContent ().build ();
-         LOG.info ("Puerto: " + catalogResponse.getHeaders ().get ("port"));
+         LOG.info ("Puerto: " + catalogResponse.getHeaders ().get ("port") + port);
          return catalogResponse;
       }
       catalogResponse = ResponseEntity.ok ().body (catalog);
-      LOG.info ("Puerto: " + catalogResponse.getHeaders ().get ("port"));
+      LOG.info ("Puerto: " + catalogResponse.getHeaders ().get ("port") + port);
       return catalogResponse;
    }
 
