@@ -13,6 +13,7 @@ las configuraciones desde el repo en github
 
 @SpringBootApplication
 @EnableConfigServer
+@EnableDiscoveryClient
 public class ServerConfigApplication {
 
 	public static void main(String[] args) {

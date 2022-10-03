@@ -1,6 +1,6 @@
 server:
   #antes ${PORT:8082} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
-  port: ${PORT:${SERVER_PORT}}
+  port: ${PORT:${SERVER_PORT:0}}
 eureka:
   client:
     # True para que se registre en el servidor de EUREKA
