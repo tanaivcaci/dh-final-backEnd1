@@ -12,6 +12,7 @@ eureka:
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
+#Configuración del circuit breaker
 resilience4j:
   circuitbreaker:
     instances:
@@ -46,11 +47,20 @@ resilience4j:
         eventConsumerBufferSize: 10
         allowHealthIndicatorToFail: false
 
+#Configuración del mecanismo de reintentos
+  retry:
+    instances:
+      catalogCB:
+        maxAttemps: 3
+        waitDuration: 1000
+        retryExceptions[0]: feign.FeignException$InternalServerError
+
+#Actuator
 management:
   endpoints:
     web:
       exposure:
-        include: health, info, circuitbreakerevents
+        include: health, info, circuitbreakers, circuitbreakerevents
 info:
   app:
     name: catalog-service

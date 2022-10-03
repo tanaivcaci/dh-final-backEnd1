@@ -4,6 +4,7 @@ import com.dh.catalogservice.api.service.Impl.CatalogService;
 import com.dh.catalogservice.domain.models.Catalog;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,10 @@ public class CatalogController {
     * fallbackMethod: indica el método que se ejecutará en caso de que falle el método actual.
     * */
 
+   /* Agrego éste Circuit breaker y retry ya que éste es el método más importante porque
+   * se comunica con los MS de movies y series a través de Feign y pueden ocurrir fallas*/
    @CircuitBreaker (name = "catalogCB", fallbackMethod = "getCatalogByGenreFallBackMethod")
+   @Retry ( name = "catalogCB")
    @GetMapping ("/{genre}")
    public ResponseEntity<Catalog> getCatalogByGenre (@PathVariable String genre, HttpServletResponse response) {
 
