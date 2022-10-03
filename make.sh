@@ -1,25 +1,26 @@
 cd server-config/
-mvn clean
+sh make.sh
 cd ..
 
 cd eureka-server/
-mvn clean
+sh make.sh
 cd ..
 
 cd movie-service/
-mvn clean
+sh make.sh
 cd ..
 
 cd series-service/
-mvn clean
+sh make.sh
 cd ..
 
 cd catalog-service/
-mvn clean
+sh make.sh
 cd ..
 
 cd api-gateway/
-mvn clean
+sh make.sh
 cd ..
 
+docker compose up
 

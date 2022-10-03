@@ -32,7 +32,7 @@ public class LogFilter extends AbstractGatewayFilterFactory<LogFilter.Config> {
          return chain.filter (exchange).then (Mono.fromRunnable (()->{
             //Filtro posterior a la request del service asociado al gateway
             LOG.info ("Time Response: " + Calendar.getInstance ().getTime ());
-            LOG.info ("La request BLAAAA  PUERTO: " + exchange.getRequest ().getHeaders ().get ("port"));
+            LOG.info ("Finalizó el procesamiento de ala request PUERTO: " + exchange.getRequest ().getHeaders ().get ("port"));
          }));
       };
    }

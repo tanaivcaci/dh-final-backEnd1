@@ -54,8 +54,13 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
    @Override
    @CircuitBreaker (name = "moviesCB", fallbackMethod = "moviesFallbackMethod")
    public ResponseEntity<List<MovieDTO>> getMoviesByGenreWithThrowError (String genre, Boolean throwError) {
+
       LOG.info ("Llamo a movie-service WithThrowError ... ");
-      return movieFeignClient.getMoviesByGenreWithThrowError (genre, throwError);
+      if (throwError) {
+         LOG.error ("Error al buscar película por género desde catálogo");
+         throw new RuntimeException ();
+      }
+      return movieFeignClient.getMoviesByGenreWithThrowError (genre, false);
    }
 
    private ResponseEntity<List<MovieDTO>> moviesFallbackMethod(CallNotPermittedException exception){
@@ -85,7 +90,11 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
    @CircuitBreaker (name = "seriesCB", fallbackMethod = "seriesFallbackMethod")
    public ResponseEntity<List<SerieDTO>> getSeriesByGenreWithThrowError (String genre, boolean throwError) {
       LOG.info ("Llamo a serie-service WithThrowError ");
-      return serieFeignClient.getSeriesByGenreWithThrowError (genre, throwError);
+      if (throwError) {
+         LOG.error ("Error al buscar series por género desde catálogo");
+         throw new RuntimeException ();
+      }
+      return serieFeignClient.getSeriesByGenreWithThrowError (genre, false);
    }
 
    private ResponseEntity<List<SerieDTO>> seriesFallbackMethod (CallNotPermittedException exception) {
