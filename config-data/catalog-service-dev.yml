@@ -2,6 +2,16 @@ server:
   #antes ${PORT:8084} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
   port: ${PORT:${SERVER_PORT:0}}
 
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: rootuser
+      password: rootpass
+      database: catalogdb
+      port: 27017
+      host: mongodb
+
 eureka:
   client:
     # True para que se registre en el servidor de EUREKA
@@ -63,6 +73,6 @@ management:
         include: health, info, circuitbreakers, circuitbreakerevents
 info:
   app:
-    name: catalog-service
+    name: ${spring.application.name}
     description: Catalog Service
     version: 1.0.0

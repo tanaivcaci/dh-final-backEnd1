@@ -11,8 +11,18 @@ eureka:
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://mysql:3306/moviesdb
+    username: user
+    password: pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 info:
   app:
-    name: movies-service
+    name: ${spring.application.name}
     description: Movie Service
     version: 1.0.0
