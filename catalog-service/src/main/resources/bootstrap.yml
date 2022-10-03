@@ -3,10 +3,9 @@ spring:
     name: catalog-service
   cloud:
     config:
-      discovery:
-        enabled: true
-        service-id: server-config
-        url: ${CONFIG_SERVER:http://localhost:8888}
+      enabled: true
+      service-id: server-config
+      url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev
 
