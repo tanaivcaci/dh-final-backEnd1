@@ -1,6 +1,17 @@
 server:
   #antes ${PORT:8083} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
   port: ${PORT:${SERVER_PORT:0}}
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: rootuser
+      password: rootpass
+      database: seriesdb
+      port: 27017
+      host: mongodb
+
 eureka:
   client:
     # True para que se registre en el servidor de EUREKA
@@ -13,6 +24,6 @@ eureka:
 
   info:
     app:
-      name: series-service
+      name: ${spring.application.name}
       description: Series Service
       version: 1.0.0

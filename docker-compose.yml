@@ -54,7 +54,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_DATABASE=final
+      - MYSQL_DATABASE=moviesdb
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
       - MYSQL_ROOT_PASSWORD=pass
