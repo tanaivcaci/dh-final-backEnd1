@@ -17,8 +17,8 @@ resilience4j:
     instances:
       moviesCB:
         registerHealthIndicator: true
-        slidingWindowSize: 5
-        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 3
+        permittedNumberOfCallsInHalfOpenState: 2
         slidingWindowType: COUNT_BASED
         minimumNumberOfCalls: 3
         waitDurationInOpenState: 5s
@@ -27,8 +27,8 @@ resilience4j:
         allowHealthIndicatorToFail: false
       seriesCB:
         registerHealthIndicator: true
-        slidingWindowSize: 5
-        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 3
+        permittedNumberOfCallsInHalfOpenState: 2
         slidingWindowType: COUNT_BASED
         minimumNumberOfCalls: 3
         waitDurationInOpenState: 5s
@@ -37,8 +37,8 @@ resilience4j:
         allowHealthIndicatorToFail: false
       catalogCB:
         registerHealthIndicator: true
-        slidingWindowSize: 5
-        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 3
+        permittedNumberOfCallsInHalfOpenState: 2
         slidingWindowType: COUNT_BASED
         minimumNumberOfCalls: 3
         waitDurationInOpenState: 5s
@@ -46,6 +46,11 @@ resilience4j:
         eventConsumerBufferSize: 10
         allowHealthIndicatorToFail: false
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, circuitbreakerevents
 info:
   app:
     name: catalog-service
