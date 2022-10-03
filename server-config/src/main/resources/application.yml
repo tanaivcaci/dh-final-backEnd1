@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: gateway
+          default-label: distribut-tracing
           uri: https://github.com/tanaivcaci/dh-final-backEnd1
           search-paths: config-data
   application:
