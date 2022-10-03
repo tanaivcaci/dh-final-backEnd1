@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -45,10 +42,8 @@ public class CatalogController {
    @CircuitBreaker (name = "catalogCB", fallbackMethod = "getCatalogByGenreFallBackMethod")
    @GetMapping ("/{genre}")
    public ResponseEntity<Catalog> getCatalogByGenre (@PathVariable String genre, HttpServletResponse response) {
-      //TODO OJO DEBERÍA TRABAJAR CON RESPONSE ENTITYS OBTENIDAS A TRAVÉS DE FEIGN Y LOGGUEAR - mirar parcial
 
       Catalog catalog = catalogService.getCatalogByGenre (genre);
-
       response.addHeader ("port", String.valueOf (port));
 
       ResponseEntity<Catalog> catalogResponse;
@@ -66,8 +61,8 @@ public class CatalogController {
 
 
    /*----------------- Método de Fallback ---------------*/
-
-   private ResponseEntity<Catalog> getCatalogByGenreFallBackMethod (CallNotPermittedException exception) {
+   @GetMapping("/witherrors/{genre}")
+   ResponseEntity<Catalog> getCatalogByGenreFallBackMethod (CallNotPermittedException exception) {
       LOG.info ("Se activo el circuit breaker para obtener un catálogo por género");
       ResponseEntity<Catalog> response = ResponseEntity.ok ().build ();
       return response;

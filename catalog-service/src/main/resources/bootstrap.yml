@@ -3,8 +3,15 @@ spring:
     name: catalog-service
   cloud:
     config:
-      enabled: true
-      # uri del config-server url: ${CONFIG_SERVER:http://localhost:8888}
-      url: ${CONFIG_SERVER:http://localhost:8888}
+      discovery:
+        enabled: true
+        service-id: server-config
+        url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev
+
+#Para habilitar el endpoint /circuitbreakerevents
+management:
+  health:
+    circuitbreakers:
+      enabled: true
