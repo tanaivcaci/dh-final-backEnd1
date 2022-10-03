@@ -27,7 +27,7 @@ services:
   series-service:
     image: series-service
     ports:
-      - "8086:8086"
+      - "8083:8083"
     restart: always
   movies-service:
     image: movies-service

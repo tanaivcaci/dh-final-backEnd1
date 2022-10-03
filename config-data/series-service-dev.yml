@@ -1,6 +1,7 @@
 server:
+  port: ${PORT:8083}
   #antes ${PORT:8083} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
-  port: ${PORT:${SERVER_PORT:0}}
+  #port: ${PORT:${SERVER_PORT:0}}
 
 spring:
   data:
