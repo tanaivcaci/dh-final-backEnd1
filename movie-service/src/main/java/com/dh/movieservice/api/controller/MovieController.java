@@ -35,19 +35,11 @@ public class MovieController {
    @GetMapping ("/{genre}")
    public ResponseEntity<List<Movie>> getMoviesByGenre (@PathVariable String genre, HttpServletResponse response) {
       response.addHeader ("port", port);
-
       List<Movie> movies = movieService.findByGenre (genre);
-
       LOG.info ("[MS movies-service] getMoviesByGenre {PORT: "+ port + " }");
-
       return movies.isEmpty ()
             ? ResponseEntity.noContent ().build ()
             : ResponseEntity.ok ().body (movies);
-
-/*      if (movies.isEmpty ()) {
-         return ResponseEntity.noContent ().build ();
-      }
-      return ResponseEntity.ok ().body (movies);*/
    }
 
    @GetMapping("/id/{id}")
@@ -62,4 +54,10 @@ public class MovieController {
       return ResponseEntity.ok ().body (movies);
    }
 
+   /* RabbitMQ */
+   @PostMapping("/save")
+   ResponseEntity<String> saveMovieQueueCatalog (@RequestBody Movie movie){
+      movieService.saveMovie (movie);
+      return ResponseEntity.ok ("La película se envió a la queue Catalog");
+   }
 }

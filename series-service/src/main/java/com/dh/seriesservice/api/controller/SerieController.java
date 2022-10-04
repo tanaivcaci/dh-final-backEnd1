@@ -43,5 +43,11 @@ public class SerieController {
    }
 
 
+   /* RabbitMQ */
+   @PostMapping("/save")
+   ResponseEntity<String> saveSerieQueueCatalog (@RequestBody Serie serie){
+      serieService.saveSerie (serie);
+      return ResponseEntity.ok ("La serie se envió a la queue Catalog");
+   }
 
 }
