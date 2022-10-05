@@ -11,7 +11,9 @@ import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -106,7 +108,9 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
    /*----------------- OBTENGO Y ACTUALIZO CATÁLOGO ---------------*/
 
    @Override
+   @RabbitListener(queues = "${queue.catalog.name}")
    public Catalog getCatalogByGenre (String genre) {
+      LOG.info ("Se va actualizar el catálogo de género: " + genre + " a través de rabbit");
       updateCatalogByGenre (genre);
       return catalogRepository.findByGenre (genre);
    }

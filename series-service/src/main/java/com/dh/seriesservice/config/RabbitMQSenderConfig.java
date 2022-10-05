@@ -15,6 +15,6 @@ public class RabbitMQSenderConfig {
    /* Para linkear la queue, la cree en rabbitMQ y sea funcional */
    @Bean
    public Queue queue(){
-      return new Queue (movieQueueCatalog, true);
+      return new Queue (this.movieQueueCatalog, true);
    }
 }

@@ -1,4 +1,4 @@
-package com.dh.movieservice.config;
+package com.dh.catalogservice.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,15 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RabbitMQSenderConfig {
+public class RabbitMQConsumerConfig {
 
-   /* Value para obtener la cola que necesito referenciar */
+
    @Value ("${queue.catalog.name}")
-   private String movieQueueCatalog;
+   private String queueCatalog;
 
-   /* Para linkear la queue, la cree en rabbitMQ y sea funcional */
    @Bean
    public Queue queue(){
-      return new Queue (this.movieQueueCatalog, true);
+      return new Queue (this.queueCatalog, true);
    }
 }
