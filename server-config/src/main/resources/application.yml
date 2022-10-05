@@ -5,8 +5,12 @@ spring:
     config:
       server:
         git:
-          default-label: docker
+          default-label: rabbitMQ
           uri: https://github.com/tanaivcaci/dh-final-backEnd1
           search-paths: config-data
   application:
     name: server-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/

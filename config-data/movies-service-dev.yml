@@ -1,15 +1,17 @@
 server:
+  port: ${PORT:8082}
   #antes ${PORT:8082} - MULTUPLE-INSTANCES -> SERVER_PORT:0 para que me de un puerto cualquiera que no esté en uso
-  port: ${PORT:${SERVER_PORT:0}}
-eureka:
-  client:
+  #port: ${PORT:${SERVER_PORT:0}}
+
+#eureka:
+#  client:
     # True para que se registre en el servidor de EUREKA
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      default-zone: http://eureka-server:8761/eureka
-    instance:
-      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      default-zone: http://eureka-server:8761/eureka
+#    instance:
+#      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
 spring:
   jpa:

@@ -8,3 +8,7 @@ spring:
       url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev
+
+  zipkin:
+    enabled: true
+    baseUrl: http://zipkin:9411

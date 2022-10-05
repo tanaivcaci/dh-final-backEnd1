@@ -18,23 +18,27 @@
         <spring-cloud.version>2021.0.4</spring-cloud.version>
     </properties>
     <dependencies>
-        <!--		<dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-actuator</artifactId>
-                </dependency>-->
+        <!-- CONFIG SERVER -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
 
-        <!--EUREKA DISCOVERY CLIENT-->
-<!--        <dependency>
+        <!-- ACTUATOR -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- EUREKA DISCOVERY CLIENT -->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>-->
+        </dependency>
 
 
         <!-- DISTRIBUTED TRACING -->
+        <!-- SLEUTH -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>

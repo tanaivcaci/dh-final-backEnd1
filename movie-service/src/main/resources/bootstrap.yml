@@ -8,6 +8,24 @@ spring:
 		  enabled: true
 		  service-id: server-config
 		  #url: ${CONFIG_SERVER:http://localhost:8888}
-
+  rabbitmq:
+    username: guest
+    password: guest
+    host: rabbitmq #mismo nombre que setteo en el docker-compose
+    port: 5672
   profiles:
     active: dev
+
+queue:
+  catalog:
+    name: Catalog
+
+eureka:
+  client:
+    # True para que se registre en el servidor de EUREKA
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://eureka-server:8761/eureka
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
