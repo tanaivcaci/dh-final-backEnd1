@@ -23,22 +23,28 @@ spring:
           predicates:
             - Path=/catalog/**
           filters:
-            - AddRequestHeader=catalog-request-header, custom-catalog-request-header
-            - AddResponseHeader=catalog-response-header, custom-catalog-response-header
+            - name: CircuitBreaker
+              args:
+                name: catalogCB
+                fallbackUri: forward:/fallback/catalog
         - id: movies-service
           uri: lb://movies-service
           predicates:
             - Path=/movies/**
           filters:
-            - AddRequestHeader=movies-request-header, custom-movies-request-header
-            - AddResponseHeader=movies-response-header, custom-movies-response-header
+            - name: CircuitBreaker
+              args:
+                name: movieCB
+                fallbackUri: forward:/fallback/movies
         - id: series-service
           uri: lb://series-service
           predicates:
             - Path=/series/**
           filters:
-            - AddRequestHeader=series-request-header, custom-series-request-header
-            - AddResponseHeader=series-response-header, custom-series-response-header
+            - name: CircuitBreaker
+              args:
+                name: serieCB
+                fallbackUri: forward:/fallback/series
 
 management:
   endpoints:
