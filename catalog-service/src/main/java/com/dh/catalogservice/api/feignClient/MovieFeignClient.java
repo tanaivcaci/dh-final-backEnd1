@@ -16,8 +16,6 @@ import java.util.List;
 @LoadBalancerClient( name = "movies-services", configuration = CustomLoadBalancerConfiguration.class)
 public interface MovieFeignClient {
 
-/*   @GetMapping("/movies/{genre}")
-   List<MovieDTO> getMoviesByGenre(@PathVariable String genre);*/
 
    @GetMapping("/movies/{genre}")
    ResponseEntity<List<MovieDTO>> getMoviesByGenre(@PathVariable(value = "genre") String genre);

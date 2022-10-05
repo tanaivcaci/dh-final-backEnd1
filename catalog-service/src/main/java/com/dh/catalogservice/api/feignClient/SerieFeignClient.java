@@ -15,10 +15,6 @@ import java.util.List;
 @LoadBalancerClient ( name = "series-services", configuration = CustomLoadBalancerConfiguration.class)
 public interface SerieFeignClient {
 
-   //TODO DEBERÍA DEVOLVER RESPONSE ENTITYS DE LOS DTOS - VER PARCIAL
-/*   @GetMapping("/series/{genre}")
-   List<SerieDTO> getSeriesByGenre(@PathVariable String genre);*/
-
    @GetMapping("/series/{genre}")
    ResponseEntity<List<SerieDTO>> getSeriesByGenre(@PathVariable(value = "genre") String genre);
 
