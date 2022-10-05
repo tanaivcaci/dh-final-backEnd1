@@ -45,8 +45,6 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
 
 
    /*----------------- MOVIES · CIRCUIT BREAKER · FALLBACK METHOD ----------------------------*/
-
-
    /*--              OBTENGO EL LISTADO DE MOVIES Y SERIES A TRAVÉS DE FEIGN  ---------------*/
    public ResponseEntity<List<MovieDTO>> getMoviesByGenre (String genre) {
       LOG.info ("Se va a incluir el llamado a movie-service ... ");
@@ -70,16 +68,6 @@ public class CatalogService implements ICatalogService, MovieFeignClient, SerieF
       return new ResponseEntity<> (new ArrayList<> (), HttpStatus.OK);
    }
 
-
-   /*   public Catalog getMoviesByGenre (String genre) {
-      ResponseEntity<List<MovieDTO>> moviesByGenre = movieFeignClient.getMoviesByGenre (genre);
-      LOG.info ("Puerto: " + moviesByGenre.getHeaders ().get ("port"));
-
-      if (moviesByGenre.getStatusCode ().is2xxSuccessful ()){
-         return new Catalog (genre, moviesByGenre.getBody ());
-      }
-      return null;
-   }*/
 
    /*----------------- SERIES · CIRCUIT BREAKER · FALLBACK METHOD ----------------------------*/
    @Override

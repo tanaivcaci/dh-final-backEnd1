@@ -58,10 +58,6 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
       - MYSQL_ROOT_PASSWORD=pass
-  redis:
-    image: redis
-    ports:
-     - "6379:6379"
       
 volumes:
   data: { }
