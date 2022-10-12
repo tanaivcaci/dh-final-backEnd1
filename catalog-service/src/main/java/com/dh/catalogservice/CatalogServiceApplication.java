@@ -14,7 +14,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @EnableEurekaClient
-@EnableDiscoveryClient
 @EnableRabbit
 public class CatalogServiceApplication {
 

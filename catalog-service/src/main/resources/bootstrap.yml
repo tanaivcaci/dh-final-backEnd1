@@ -3,9 +3,13 @@ spring:
     name: catalog-service
   cloud:
     config:
-      enabled: true
-      service-id: server-config
-      url: ${CONFIG_SERVER:http://localhost:8888}
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: server-config
+      # uri del config-server
+      # url: ${CONFIG_SERVER:http://localhost:8888}
+
   rabbitmq:
     username: guest
     password: guest
@@ -28,10 +32,3 @@ eureka:
       default-zone: http://eureka-server:8761/eureka
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-
-
-#Para habilitar el endpoint /circuitbreakerevents
-management:
-  health:
-    circuitbreakers:
-      enabled: true

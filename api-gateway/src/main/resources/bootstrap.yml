@@ -3,9 +3,12 @@ spring:
     name: api-gateway
   cloud:
     config:
-      enabled: true
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: server-config
       # uri del config-server
-      url: ${CONFIG_SERVER:http://localhost:8888}
+      # url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev
 
@@ -17,4 +20,3 @@ eureka:
       default-zone: http://eureka-server:8761/eureka
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-

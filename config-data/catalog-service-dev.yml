@@ -13,15 +13,6 @@ spring:
       port: 27017
       host: mongodb
 
-#eureka:
-#  client:
-    # True para que se registre en el servidor de EUREKA
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      default-zone: http://eureka-server:8761/eureka
-#    instance:
-#      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
 #Configuración del circuit breaker
 resilience4j:
@@ -29,12 +20,12 @@ resilience4j:
     instances:
       moviesCB:
         registerHealthIndicator: true
-        slidingWindowSize: 3
-        permittedNumberOfCallsInHalfOpenState: 2
-        slidingWindowType: COUNT_BASED
-        minimumNumberOfCalls: 3
-        waitDurationInOpenState: 5s
-        failureRateThreshold: 50
+        slidingWindowSize: 3                      #Cantidad de eventos a esperar
+        permittedNumberOfCallsInHalfOpenState: 2  #Cantidad de intentos de peticiones en estado semiabierto
+        slidingWindowType: COUNT_BASED            #Analiza por cantidad de eventos
+        minimumNumberOfCalls: 3                   #Cantidad mínima de llamadas
+        waitDurationInOpenState: 5s               #Tiempo de espera con circuit breaker en estado abierto
+        failureRateThreshold: 50                  #Límite de fallas permitidas - 50%
         eventConsumerBufferSize: 10
         allowHealthIndicatorToFail: false
       seriesCB:
@@ -72,6 +63,11 @@ management:
     web:
       exposure:
         include: health, info, circuitbreakers, circuitbreakerevents
+  health:
+    #Para habilitar el endpoint /circuitbreakers
+    circuitbreakers:
+      enabled: true
+
 info:
   app:
     name: ${spring.application.name}
