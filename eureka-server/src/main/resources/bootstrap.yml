@@ -3,12 +3,10 @@ spring:
     name: eureka-server
   cloud:
     config:
-      enabled: true
-      # uri del config-server url: ${CONFIG_SERVER:http://localhost:8888}
-      url: ${CONFIG_SERVER:http://localhost:8888}
+      discovery:
+        enabled: true
+        service-id: server-config
+      # uri del config-server
+      # url: ${CONFIG_SERVER:http://localhost:8888}
   profiles:
     active: dev
-
-  zipkin:
-    enabled: true
-    baseUrl: http://zipkin:9411
