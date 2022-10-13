@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dbb8a230-08d7-4f86-94c0-1abe4e116a10" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/dh/apigateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/dh/apigateway/ApiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/CatalogServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/CatalogServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-data/api-gateway-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-data/api-gateway-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-data/catalog-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-data/catalog-service-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-data/movies-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-data/movies-service-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-data/series-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-data/series-service-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/dh/movieservice/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/dh/movieservice/MovieServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/api/feignClient/MovieFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/api/feignClient/MovieFeignClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/series-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/series-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-config/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server-config/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,19 +46,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="IvannaCingolani-FinalBackEnd" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="IvannaCingolani-FinalBackEnd" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

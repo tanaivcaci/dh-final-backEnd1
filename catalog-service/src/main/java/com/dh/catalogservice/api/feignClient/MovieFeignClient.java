@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @FeignClient(name = "movies-service")
-@LoadBalancerClient( name = "movies-services", configuration = CustomLoadBalancerConfiguration.class)
+@LoadBalancerClient(name = "movies-services", configuration = CustomLoadBalancerConfiguration.class)
 public interface MovieFeignClient {
 
 

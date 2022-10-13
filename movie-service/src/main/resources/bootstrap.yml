@@ -3,7 +3,7 @@ spring:
     name: movies-service
   cloud:
     config:
-    	fail-fast: true
+    	fail-fast: true #establecemos que el servicio falle en tiempo de arranque si por alguna razón no le es provista su configuración desde el server-config
     	discovery:
 		  enabled: true
 		  service-id: server-config
